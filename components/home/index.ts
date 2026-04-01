@@ -1,0 +1,12 @@
+export { HomePage } from "./HomePage";
+export { Navbar } from "./Navbar";
+export { PrimeBanner } from "./PrimeBanner";
+export { Hero } from "./Hero";
+export { Quiz } from "./Quiz";
+export { Services } from "./Services";
+export { MonteHighlight } from "./MonteHighlight";
+export { Articles } from "./Articles";
+export { Accessories } from "./Accessories";
+export { FAQ } from "./FAQ";
+export { FinalCTA } from "./FinalCTA";
+export { Footer } from "./Footer";
