@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useCallback, useState } from "react";
 
@@ -58,7 +58,7 @@ export function Quiz() {
   return (
     <section className="bg-sageLight px-8 py-[70px]" id="quiz">
       <div className="mx-auto max-w-[780px] text-center">
-        <span className="mb-3 block text-[0.78rem] font-medium uppercase tracking-[0.12em] text-sage">
+        <span className="mb-3 block text-[0.88rem] font-medium uppercase tracking-[0.12em] text-sage sm:text-[0.92rem]">
           Simulateur d&apos;aides
         </span>
         <h2 className="mb-3 font-serif text-[2.2rem] text-charcoal">Combien pouvez-vous obtenir ?</h2>
@@ -85,10 +85,10 @@ export function Quiz() {
                     key={opt.text}
                     type="button"
                     onClick={selectStep1}
-                    className="flex cursor-pointer items-center gap-3 rounded-[10px] border-[1.5px] border-borderDefault bg-cream px-4 py-4 text-left transition-all hover:border-sage hover:bg-sageLight"
+                    className="flex min-h-[5.75rem] w-full cursor-pointer items-center gap-3 rounded-[10px] border-[1.5px] border-borderDefault bg-cream px-4 py-3 text-left transition-all hover:border-sage hover:bg-sageLight"
                   >
-                    <span className="text-2xl">{opt.icon}</span>
-                    <span className="text-[0.9rem] font-medium text-charcoal">{opt.text}</span>
+                    <span className="shrink-0 text-2xl">{opt.icon}</span>
+                    <span className="text-[0.9rem] font-medium leading-snug text-charcoal">{opt.text}</span>
                   </button>
                 ))}
               </div>
@@ -104,10 +104,10 @@ export function Quiz() {
                     key={opt.text}
                     type="button"
                     onClick={selectStep2}
-                    className="flex cursor-pointer items-center gap-3 rounded-[10px] border-[1.5px] border-borderDefault bg-cream px-4 py-4 text-left transition-all hover:border-sage hover:bg-sageLight"
+                    className="flex min-h-[5.75rem] w-full cursor-pointer items-center gap-3 rounded-[10px] border-[1.5px] border-borderDefault bg-cream px-4 py-3 text-left transition-all hover:border-sage hover:bg-sageLight"
                   >
-                    <span className="text-2xl">{opt.icon}</span>
-                    <span className="text-[0.9rem] font-medium text-charcoal">{opt.text}</span>
+                    <span className="shrink-0 text-2xl">{opt.icon}</span>
+                    <span className="text-[0.9rem] font-medium leading-snug text-charcoal">{opt.text}</span>
                   </button>
                 ))}
               </div>
@@ -123,10 +123,10 @@ export function Quiz() {
                     key={opt.text}
                     type="button"
                     onClick={selectStep3}
-                    className="flex cursor-pointer items-center gap-3 rounded-[10px] border-[1.5px] border-borderDefault bg-cream px-4 py-4 text-left transition-all hover:border-sage hover:bg-sageLight"
+                    className="flex min-h-[5.75rem] w-full cursor-pointer items-center gap-3 rounded-[10px] border-[1.5px] border-borderDefault bg-cream px-4 py-3 text-left transition-all hover:border-sage hover:bg-sageLight"
                   >
-                    <span className="text-2xl">{opt.icon}</span>
-                    <span className="text-[0.9rem] font-medium text-charcoal">{opt.text}</span>
+                    <span className="shrink-0 text-2xl">{opt.icon}</span>
+                    <span className="text-[0.9rem] font-medium leading-snug text-charcoal">{opt.text}</span>
                   </button>
                 ))}
               </div>

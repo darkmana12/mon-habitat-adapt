@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 export function FinalCTA() {
   return (
@@ -11,7 +11,7 @@ export function FinalCTA() {
       </p>
       <Link
         href="#quiz"
-        className="inline-block rounded-lg bg-white px-9 py-4 text-base font-medium text-sageDark no-underline transition-all hover:-translate-y-0.5 hover:opacity-90"
+        className="inline-block rounded-full bg-white px-9 py-[1.125rem] text-[1rem] font-bold leading-snug text-sageDark shadow-[0_4px_20px_rgba(0,0,0,0.14),0_8px_32px_rgba(0,0,0,0.12)] no-underline transition-all hover:-translate-y-0.5 hover:opacity-90 hover:shadow-[0_8px_28px_rgba(0,0,0,0.2),0_16px_44px_rgba(0,0,0,0.16)] sm:px-11 sm:py-[1.2rem] sm:text-[1.0625rem]"
       >
         Calculer mes aides — c&apos;est gratuit
       </Link>

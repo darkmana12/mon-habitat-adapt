@@ -1,23 +1,24 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 export function Services() {
   return (
-    <section className="mx-auto max-w-[1200px] px-8 py-20" id="services">
+    <section className="mx-auto max-w-[1320px] px-8 py-20" id="services">
       <div className="mb-12 text-center">
-        <span className="mb-3 block text-[0.78rem] font-medium uppercase tracking-[0.12em] text-sage">Nos domaines</span>
+        <span className="mb-3 block text-[0.88rem] font-medium uppercase tracking-[0.12em] text-sage sm:text-[0.92rem]">
+          Nos domaines
+        </span>
         <h2 className="mb-3 font-serif text-[2.4rem]">Tout pour adapter votre logement</h2>
         <p className="mx-auto max-w-[560px] text-[1.05rem] text-textMuted">
           Des guides complets, des conseils sur les aides et des artisans vérifiés pour chaque type de travaux.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 min-[900px]:grid-cols-[1.4fr_1fr_1fr]" id="douche">
+      <div className="grid grid-cols-1 gap-8 min-[900px]:grid-cols-3" id="douche">
         <Link href="#" className="flex flex-col overflow-hidden rounded-2xl border border-borderDefault bg-white text-inherit no-underline transition-all hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.1)]">
           <div className="flex-1 px-8 pb-6 pt-8">
-            <div className="mb-3 flex items-center gap-1.5 text-[0.75rem] font-medium uppercase tracking-[0.1em] text-terracotta">
-              ⭐ Notre spécialité
-            </div>
-            <h3 className="mb-3 font-serif text-[1.35rem] leading-snug">Douche senior & remplacement de baignoire</h3>
+            <h3 className="mb-2 font-sans text-[1.125rem] font-medium leading-snug text-charcoal sm:text-[1.2rem]">
+              Douche senior & remplacement de baignoire
+            </h3>
             <p className="mb-5 text-[0.88rem] leading-relaxed text-textMuted">
               46% des chutes de seniors se produisent dans la salle de bain. Découvrez comment remplacer votre baignoire par une douche à l&apos;italienne sécurisée avec barre d&apos;appui, siège et receveur antidérapant.
             </p>
@@ -39,10 +40,9 @@ export function Services() {
 
         <Link href="#" className="flex flex-col overflow-hidden rounded-2xl border border-borderDefault bg-white text-inherit no-underline transition-all hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.1)]" id="monte">
           <div className="flex-1 px-8 pb-6 pt-8">
-            <div className="mb-3 flex items-center gap-1.5 text-[0.75rem] font-medium uppercase tracking-[0.1em] text-terracotta">
-              🪜 Gros budget
-            </div>
-            <h3 className="mb-3 font-serif text-[1.35rem] leading-snug">Monte-escalier & élévateur</h3>
+            <h3 className="mb-2 font-sans text-[1.125rem] font-medium leading-snug text-charcoal sm:text-[1.2rem]">
+              Monte-escalier & élévateur
+            </h3>
             <p className="mb-5 text-[0.88rem] leading-relaxed text-textMuted">
               La solution pour rester dans votre maison à étage. Commissions 100–200€/lead — nos meilleures recommandations.
             </p>
@@ -61,10 +61,9 @@ export function Services() {
 
         <Link href="#" className="flex flex-col overflow-hidden rounded-2xl border border-borderDefault bg-white text-inherit no-underline transition-all hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.1)]" id="aides">
           <div className="flex-1 px-8 pb-6 pt-8">
-            <div className="mb-3 flex items-center gap-1.5 text-[0.75rem] font-medium uppercase tracking-[0.1em] text-sage">
-              💶 Financement
-            </div>
-            <h3 className="mb-3 font-serif text-[1.35rem] leading-snug">Aides & subventions 2025</h3>
+            <h3 className="mb-2 font-sans text-[1.125rem] font-medium leading-snug text-charcoal sm:text-[1.2rem]">
+              Aides & subventions 2025
+            </h3>
             <p className="mb-5 text-[0.88rem] leading-relaxed text-textMuted">
               MaPrimeAdapt&apos;, CEE, aide de l&apos;ANAH, APA… on décrypte tout ce à quoi vous avez droit.
             </p>

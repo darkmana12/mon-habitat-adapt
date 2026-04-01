@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 
@@ -39,7 +39,9 @@ export function FAQ() {
   return (
     <section className="mx-auto max-w-[780px] px-8 py-20">
       <div className="mb-12 text-center">
-        <span className="mb-3 block text-[0.78rem] font-medium uppercase tracking-[0.12em] text-sage">Questions fréquentes</span>
+        <span className="mb-3 block text-[0.88rem] font-medium uppercase tracking-[0.12em] text-sage sm:text-[0.92rem]">
+          Questions fréquentes
+        </span>
         <h2 className="mb-3 font-serif text-[2.4rem]">Vos questions, nos réponses</h2>
       </div>
 
@@ -51,10 +53,14 @@ export function FAQ() {
             onClick={() => toggle(i)}
             aria-expanded={open[i]}
           >
-            <h3 className="font-sans text-[0.97rem] font-medium text-charcoal">{item.q}</h3>
+            <h3 className="font-sans text-base font-medium leading-snug text-charcoal sm:text-[1.0625rem]">
+              {item.q}
+            </h3>
             <span className={`shrink-0 text-2xl font-light text-sage transition-transform ${open[i] ? "rotate-45" : ""}`}>+</span>
           </button>
-          {open[i] && <div className="pt-3 text-[0.88rem] leading-[1.7] text-textMuted">{item.a}</div>}
+          {open[i] && (
+            <div className="pt-3 text-[0.95rem] leading-[1.7] text-textMuted sm:text-base">{item.a}</div>
+          )}
         </div>
       ))}
     </section>

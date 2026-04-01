@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -58,16 +58,9 @@ export function Hero() {
             <p className="relative z-[1] mb-6 text-[0.9rem] opacity-85">
               Transformez votre baignoire en douche à l&apos;italienne sécurisée avec barre d&apos;appui et receveur antidérapant.
             </p>
-            <span className="relative z-[1] inline-block rounded-md bg-gold px-4 py-2 text-[0.85rem] font-medium text-white">
+            <span className="relative z-[1] inline-block rounded-md bg-gradient-to-br from-warmGold to-warmGoldDeep px-5 py-2.5 text-[0.95rem] font-medium text-white shadow-sm sm:text-base">
               ✓ Éligible MaPrimeAdapt&apos;
             </span>
-          </div>
-          <div className="absolute -bottom-5 -left-[30px] flex items-center gap-2.5 rounded-xl bg-white px-[18px] py-3.5 text-[0.82rem] shadow-[0_8px_32px_rgba(0,0,0,0.12)]">
-            <div className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#4CAF50]" />
-            <div>
-              <span className="block text-[0.75rem] text-textMuted">Artisan disponible</span>
-              <span className="text-base font-medium text-charcoal">Paris 15e • Handibat</span>
-            </div>
           </div>
           <div className="absolute -right-5 top-5 rounded-xl bg-white px-[18px] py-3.5 text-[0.82rem] shadow-[0_8px_32px_rgba(0,0,0,0.12)]">
             <span className="block text-[0.75rem] text-textMuted">Aide estimée</span>

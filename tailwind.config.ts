@@ -17,15 +17,22 @@ const config: Config = {
         terracotta: "#C4603A",
         terracottaLight: "#F5EAE4",
         terracottaHover: "#a84e2d",
-        gold: "#B8962E",
-        goldDeep: "#8B6E1F",
-        goldLight: "#FBF5E4",
+        /** Accent principal — bleu-gris (remplace l’ancienne teinte or) */
+        gold: "#4A6B8C",
+        goldDeep: "#2C4056",
+        goldLight: "#EDF1F6",
         charcoal: "#2A2A28",
         textMuted: "#6B6B68",
         textLight: "#9A9A96",
         borderDefault: "#E2DDD4",
-        goldBorder: "#e8d68a",
+        goldBorder: "#B8C9D9",
         terracottaBorder: "#e8bba8",
+        /** Or chaud discret (bandeau MaPrimeAdapt’, badge hero) */
+        warmGold: "#B8A878",
+        warmGoldDeep: "#8E7D52",
+        /** Bandeau MaPrimeAdapt’ — bleu-gris plus clair que gold / goldDeep */
+        bannerGradientFrom: "#6A8DB8",
+        bannerGradientTo: "#4A6B8A",
       },
       fontFamily: {
         sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
