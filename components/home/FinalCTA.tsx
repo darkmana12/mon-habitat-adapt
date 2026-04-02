@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function FinalCTA() {
   return (
-    <section className="bg-sage px-8 py-20 text-center" id="devis">
+    <section className="bg-sage px-8 py-16 text-center" id="devis">
       <h2 className="mx-auto mb-4 max-w-[600px] font-serif text-[2.5rem] text-white">
         Prêt à adapter votre logement ?
       </h2>
@@ -15,7 +15,7 @@ export function FinalCTA() {
       >
         Calculer mes aides — c&apos;est gratuit
       </Link>
-      <div className="mt-6 flex flex-wrap items-center justify-center gap-6">
+      <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
         <span className="flex items-center gap-1.5 text-[0.82rem] text-white/65">🔒 Aucun engagement</span>
         <span className="flex items-center gap-1.5 text-[0.82rem] text-white/65">⚡ Réponse sous 48h</span>
         <span className="flex items-center gap-1.5 text-[0.82rem] text-white/65">✓ Artisans vérifiés Handibat</span>

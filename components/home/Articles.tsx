@@ -1,12 +1,12 @@
 import Link from "next/link";
 
 const articles = [
-  { thumb: "thumb-gold", emoji: "🏛️", tag: "MaPrimeAdapt'", title: "Comment remplir le dossier MaPrimeAdapt' en 2025 (Cerfa + pièces justificatives)", desc: "Le guide complet étape par étape pour ne rien oublier et maximiser votre aide.", meta: "12 min de lecture" },
-  { thumb: "thumb-green", emoji: "🚿", tag: "Douche senior", title: "Douche italienne senior : prix 2025, marques et aides disponibles", desc: "Jacob Delafon, Kinedo, Lapeyre... Quel fabricant choisir et pour quel budget ?", meta: "8 min de lecture" },
-  { thumb: "thumb-warm", emoji: "🪜", tag: "Monte-escalier", title: "Monte-escalier : coût réel en 2025 et aides pour le financer", desc: "Tout ce que cachent les devis des commerciaux. Notre analyse impartiale.", meta: "10 min de lecture" },
-  { thumb: "thumb-green", emoji: "📋", tag: "Aides & primes", title: "Les 7 aides cumulables pour adapter votre salle de bain en 2025", desc: "MaPrimeAdapt', CEE, APA, MDPH... comment les combiner pour payer le moins possible.", meta: "9 min de lecture" },
-  { thumb: "thumb-warm", emoji: "🔧", tag: "Travaux", title: "Artisan agréé ANAH : comment le trouver et pourquoi c'est obligatoire", desc: "Sans artisan agréé, pas d'aide. On vous explique comment vérifier les labels Handibat et QB.", meta: "6 min de lecture" },
-  { thumb: "thumb-gold", emoji: "📊", tag: "Comparatif", title: "Plafonds de ressources ANAH 2025 : êtes-vous éligible ?", desc: "Tableau complet selon la composition du foyer et la zone géographique.", meta: "5 min de lecture" },
+  { thumb: "thumb-gold", emoji: "🏛️", tag: "MaPrimeAdapt'", title: "Comment remplir le dossier MaPrimeAdapt' en 2026 (Cerfa + pièces justificatives)", desc: "Le guide complet étape par étape pour ne rien oublier et maximiser votre aide." },
+  { thumb: "thumb-green", emoji: "🚿", tag: "Douche senior", title: "Douche italienne senior : prix 2026, marques et aides disponibles", desc: "Jacob Delafon, Kinedo, Lapeyre... Quel fabricant choisir et pour quel budget ?" },
+  { thumb: "thumb-warm", emoji: "🪜", tag: "Monte-escalier", title: "Monte-escalier : coût réel en 2026 et aides pour le financer", desc: "Tout ce que cachent les devis des commerciaux. Notre analyse impartiale." },
+  { thumb: "thumb-green", emoji: "📋", tag: "Aides & primes", title: "Les 7 aides cumulables pour adapter votre salle de bain en 2026", desc: "MaPrimeAdapt', CEE, APA, MDPH... comment les combiner pour payer le moins possible." },
+  { thumb: "thumb-warm", emoji: "🔧", tag: "Travaux", title: "Artisan agréé ANAH : comment le trouver et pourquoi c'est obligatoire", desc: "Sans artisan agréé, pas d'aide. On vous explique comment vérifier les labels Handibat et QB." },
+  { thumb: "thumb-gold", emoji: "📊", tag: "Comparatif", title: "Plafonds de ressources ANAH 2026 : êtes-vous éligible ?", desc: "Tableau complet selon la composition du foyer et la zone géographique." },
 ];
 
 const thumbClass: Record<string, string> = {
@@ -22,7 +22,9 @@ export function Articles() {
         <span className="mb-3 block text-[0.88rem] font-medium uppercase tracking-[0.12em] text-sage sm:text-[0.92rem]">
           Guides & conseils
         </span>
-        <h2 className="mb-3 font-serif text-[2.4rem]">Tout ce que vous devez savoir</h2>
+        <h2 className="mb-3 font-sans text-[2.4rem] font-bold leading-[1.2] tracking-tight text-charcoal">
+          Tout ce que vous devez savoir
+        </h2>
         <p className="mx-auto max-w-[560px] text-[1.05rem] text-textMuted">
           Des articles précis, écrits par des experts, avec les vrais chiffres et les vrais formulaires.
         </p>
@@ -41,8 +43,7 @@ export function Articles() {
               <h3 className="mb-2 font-sans text-[1.125rem] font-medium leading-snug text-charcoal sm:text-[1.2rem]">
                 {a.title}
               </h3>
-              <p className="mb-4 flex-1 text-[0.83rem] text-textMuted">{a.desc}</p>
-              <div className="flex items-center gap-1.5 text-[0.75rem] text-textLight">📖 {a.meta}</div>
+              <p className="flex-1 text-[0.83rem] text-textMuted">{a.desc}</p>
             </div>
           </Link>
         ))}

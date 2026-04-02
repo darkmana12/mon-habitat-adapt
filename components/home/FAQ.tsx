@@ -20,13 +20,13 @@ const faqs = [
     a: "Oui, sous conditions. Le locataire doit obtenir l'accord écrit du propriétaire avant d'entreprendre les travaux. Certaines aides comme l'APA (Allocation Personnalisée d'Autonomie) sont accessibles aux locataires pour les petits équipements. MaPrimeAdapt' est en revanche principalement destinée aux propriétaires, même si des dispositifs complémentaires existent pour les locataires modestes.",
   },
   {
-    q: "Ce site est-il payant ? Comment gagnez-vous votre vie ?",
-    a: "Tous nos guides et conseils sont 100% gratuits pour vous. Nous sommes rémunérés par les plateformes partenaires (Oui Adapt, Habitissimo) lorsque nous les mettons en relation avec des personnes à la recherche d'artisans. Cette commission est versée par le professionnel, jamais par vous. Cela nous permet de maintenir un service de conseil totalement indépendant et sans frais pour nos lecteurs.",
+    q: "Combien vais-je réellement payer après les aides ?",
+    a: "Cela dépend du coût des travaux, de vos revenus et du taux d’aide qui vous est accordé (jusqu’à 70 % pour les ménages les plus modestes). Le reste à charge est à votre budget ; d’autres dispositifs (CEE, crédit d’impôt, aides locales) peuvent parfois s’ajouter. Notre simulateur vous donne une première estimation personnalisée avant tout engagement.",
   },
 ];
 
 export function FAQ() {
-  const [open, setOpen] = useState<boolean[]>(() => faqs.map((_, i) => i === 0));
+  const [open, setOpen] = useState<boolean[]>(() => faqs.map(() => false));
 
   const toggle = (i: number) => {
     setOpen((prev) => {
@@ -40,9 +40,9 @@ export function FAQ() {
     <section className="mx-auto max-w-[780px] px-8 py-20">
       <div className="mb-12 text-center">
         <span className="mb-3 block text-[0.88rem] font-medium uppercase tracking-[0.12em] text-sage sm:text-[0.92rem]">
-          Questions fréquentes
+          FAQ
         </span>
-        <h2 className="mb-3 font-serif text-[2.4rem]">Vos questions, nos réponses</h2>
+        <h2 className="mb-3 font-sans text-[2.4rem] font-bold text-charcoal">Questions fréquentes</h2>
       </div>
 
       {faqs.map((item, i) => (
@@ -53,7 +53,7 @@ export function FAQ() {
             onClick={() => toggle(i)}
             aria-expanded={open[i]}
           >
-            <h3 className="font-sans text-base font-medium leading-snug text-charcoal sm:text-[1.0625rem]">
+            <h3 className="font-sans text-[1.05rem] font-semibold leading-snug text-charcoal sm:text-[1.125rem]">
               {item.q}
             </h3>
             <span className={`shrink-0 text-2xl font-light text-sage transition-transform ${open[i] ? "rotate-45" : ""}`}>+</span>

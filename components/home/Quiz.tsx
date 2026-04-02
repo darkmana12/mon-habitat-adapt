@@ -1,33 +1,31 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 type Step = 1 | 2 | 3 | "result";
 
+const BIRTH_YEAR_MIN = 1920;
+
 const step1Options = [
-  { icon: "🚿", text: "Douche à l'italienne / remplacement baignoire" },
-  { icon: "🪜", text: "Monte-escalier" },
-  { icon: "🚪", text: "Accessibilité (rampe, porte, couloir)" },
-  { icon: "🏠", text: "Plusieurs travaux d'adaptation" },
+  { icon: "🏠", text: "Maison" },
+  { icon: "🏢", text: "Appartement" },
 ];
 
 const step2Options = [
-  { icon: "🔵", text: "Modestes (moins de 22 000 €/an)" },
-  { icon: "🟡", text: "Intermédiaires (22 000 – 30 000 €/an)" },
-  { icon: "🟠", text: "Supérieurs à 30 000 €/an" },
-  { icon: "❓", text: "Je ne sais pas exactement" },
-];
-
-const step3Options = [
-  { icon: "✅", text: "Oui, propriétaire occupant" },
-  { icon: "🏢", text: "Non, locataire" },
-  { icon: "👨‍👩‍👧", text: "Logement d'un proche" },
-  { icon: "❓", text: "Autre situation" },
+  { icon: "🔑", text: "Propriétaire" },
+  { icon: "📋", text: "Locataire" },
 ];
 
 export function Quiz() {
   const [step, setStep] = useState<Step>(1);
   const [dots, setDots] = useState([true, false, false]);
+  const [birthYear, setBirthYear] = useState("");
+
+  const birthYearMax = useMemo(() => new Date().getFullYear() - 18, []);
+
+  const birthYearNum = parseInt(birthYear, 10);
+  const canFinish =
+    !Number.isNaN(birthYearNum) && birthYearNum >= BIRTH_YEAR_MIN && birthYearNum <= birthYearMax;
 
   const goToStep = useCallback((next: 2 | 3) => {
     setTimeout(() => {
@@ -47,23 +45,33 @@ export function Quiz() {
     }, 300);
   }, []);
 
-  const selectStep1 = () => { goToStep(2); };
+  const selectStep1 = () => {
+    goToStep(2);
+  };
   const selectStep2 = () => {
     goToStep(3);
   };
-  const selectStep3 = () => {
+
+  const handleBirthYearSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!canFinish) return;
     showResult();
   };
 
   return (
     <section className="bg-sageLight px-8 py-[70px]" id="quiz">
       <div className="mx-auto max-w-[780px] text-center">
-        <span className="mb-3 block text-[0.88rem] font-medium uppercase tracking-[0.12em] text-sage sm:text-[0.92rem]">
-          Simulateur d&apos;aides
-        </span>
-        <h2 className="mb-3 font-serif text-[2.2rem] text-charcoal">Combien pouvez-vous obtenir ?</h2>
+        <div className="mb-3 flex justify-center">
+          <span className="inline-flex min-w-[min(100%,22rem)] items-center justify-center rounded-full border border-goldBorder bg-goldLight px-8 py-2 text-[0.95rem] font-bold uppercase tracking-[0.2em] text-gold sm:min-w-[24rem] sm:px-12 sm:py-2.5 sm:text-[1rem] sm:tracking-[0.22em]">
+            Simulateur d&apos;aides
+          </span>
+        </div>
+        <h2 className="mb-3 font-sans text-[2.2rem] font-bold leading-[1.2] tracking-tight text-charcoal">
+          Combien pouvez-vous obtenir ?
+        </h2>
         <p className="mb-10 text-[1.05rem] text-textMuted">
-          Répondez à 3 questions pour estimer votre financement MaPrimeAdapt&apos; et recevoir des devis d&apos;artisans agréés.
+          Répondez à 3 questions pour estimer votre financement MaPrimeAdapt&apos; et recevoir des devis d&apos;artisans
+          agréés.
         </p>
 
         <div className="rounded-2xl border border-borderDefault bg-white p-10 text-left">
@@ -78,7 +86,9 @@ export function Quiz() {
 
           {step === 1 && (
             <div>
-              <p className="mb-6 font-serif text-[1.3rem] text-charcoal">Quel type de travaux vous intéresse ?</p>
+              <p className="mb-6 font-sans text-[1.3rem] font-semibold leading-snug text-charcoal">
+                Vous habitez en maison ou en appartement ?
+              </p>
               <div className="grid grid-cols-1 gap-3 min-[900px]:grid-cols-2">
                 {step1Options.map((opt) => (
                   <button
@@ -97,7 +107,9 @@ export function Quiz() {
 
           {step === 2 && (
             <div>
-              <p className="mb-6 font-serif text-[1.3rem] text-charcoal">Quel est votre niveau de revenus approximatif ?</p>
+              <p className="mb-6 font-sans text-[1.3rem] font-semibold leading-snug text-charcoal">
+                Êtes-vous propriétaire ou locataire ?
+              </p>
               <div className="grid grid-cols-1 gap-3 min-[900px]:grid-cols-2">
                 {step2Options.map((opt) => (
                   <button
@@ -115,41 +127,75 @@ export function Quiz() {
           )}
 
           {step === 3 && (
-            <div>
-              <p className="mb-6 font-serif text-[1.3rem] text-charcoal">Êtes-vous propriétaire de votre logement ?</p>
-              <div className="grid grid-cols-1 gap-3 min-[900px]:grid-cols-2">
-                {step3Options.map((opt) => (
-                  <button
-                    key={opt.text}
-                    type="button"
-                    onClick={selectStep3}
-                    className="flex min-h-[5.75rem] w-full cursor-pointer items-center gap-3 rounded-[10px] border-[1.5px] border-borderDefault bg-cream px-4 py-3 text-left transition-all hover:border-sage hover:bg-sageLight"
-                  >
-                    <span className="shrink-0 text-2xl">{opt.icon}</span>
-                    <span className="text-[0.9rem] font-medium leading-snug text-charcoal">{opt.text}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
+            <form onSubmit={handleBirthYearSubmit}>
+              <p className="mb-6 font-sans text-[1.3rem] font-semibold leading-snug text-charcoal">
+                Quelle est votre année de naissance ?
+              </p>
+              <label htmlFor="quiz-birth-year" className="sr-only">
+                Année de naissance
+              </label>
+              <input
+                id="quiz-birth-year"
+                type="number"
+                inputMode="numeric"
+                autoComplete="bday-year"
+                min={BIRTH_YEAR_MIN}
+                max={birthYearMax}
+                placeholder="Ex. 1958"
+                value={birthYear}
+                onChange={(e) => setBirthYear(e.target.value)}
+                className="mb-2 w-full rounded-lg border-[1.5px] border-borderDefault bg-cream px-4 py-3.5 font-sans text-[1.05rem] font-medium tabular-nums text-charcoal outline-none transition-colors focus:border-sage"
+              />
+              <p className="mb-6 text-[0.85rem] text-textMuted">
+                Entre {BIRTH_YEAR_MIN} et {birthYearMax}
+              </p>
+              <button
+                type="submit"
+                disabled={!canFinish}
+                className="w-full cursor-pointer rounded-lg border-0 bg-sage px-4 py-3.5 text-base font-semibold text-white transition-colors hover:bg-sageDark disabled:cursor-not-allowed disabled:opacity-40"
+              >
+                Voir mon estimation
+              </button>
+            </form>
           )}
 
           {step === "result" && (
             <div className="py-4 text-center">
               <p className="mb-4 text-[0.9rem] text-textMuted">Estimation basée sur vos réponses</p>
               <div className="mb-6 rounded-xl border border-terracottaBorder bg-terracottaLight px-6 py-6">
-                <div className="font-serif text-[2.5rem] font-bold text-terracotta">3 500 € – 8 200 €</div>
+                <div className="font-sans text-[2.5rem] font-bold tabular-nums text-terracotta">3 500 € – 8 200 €</div>
                 <div className="mt-1 text-[0.9rem] text-textMuted">d&apos;aides potentielles (MaPrimeAdapt&apos; + autres)</div>
               </div>
               <p className="mb-6 text-[0.88rem] text-textMuted">
                 Recevez un devis gratuit d&apos;artisans agréés ANAH près de chez vous et une estimation précise de vos aides.
               </p>
               <div className="mb-3 grid grid-cols-1 gap-3 min-[900px]:grid-cols-2">
-                <input type="text" className="w-full rounded-lg border-[1.5px] border-borderDefault bg-cream px-4 py-3 font-sans text-[0.9rem] text-charcoal outline-none transition-colors focus:border-sage" placeholder="Votre prénom" readOnly />
-                <input type="text" className="w-full rounded-lg border-[1.5px] border-borderDefault bg-cream px-4 py-3 font-sans text-[0.9rem] text-charcoal outline-none transition-colors focus:border-sage" placeholder="Votre code postal" readOnly />
+                <input
+                  type="text"
+                  className="w-full rounded-lg border-[1.5px] border-borderDefault bg-cream px-4 py-3 font-sans text-[0.9rem] text-charcoal outline-none transition-colors focus:border-sage"
+                  placeholder="Votre prénom"
+                  readOnly
+                />
+                <input
+                  type="text"
+                  className="w-full rounded-lg border-[1.5px] border-borderDefault bg-cream px-4 py-3 font-sans text-[0.9rem] text-charcoal outline-none transition-colors focus:border-sage"
+                  placeholder="Votre code postal"
+                  readOnly
+                />
               </div>
               <div className="mb-6 grid grid-cols-1 gap-3 min-[900px]:grid-cols-2">
-                <input type="tel" className="w-full rounded-lg border-[1.5px] border-borderDefault bg-cream px-4 py-3 font-sans text-[0.9rem] text-charcoal outline-none transition-colors focus:border-sage" placeholder="Votre téléphone" readOnly />
-                <input type="email" className="w-full rounded-lg border-[1.5px] border-borderDefault bg-cream px-4 py-3 font-sans text-[0.9rem] text-charcoal outline-none transition-colors focus:border-sage" placeholder="Votre email" readOnly />
+                <input
+                  type="tel"
+                  className="w-full rounded-lg border-[1.5px] border-borderDefault bg-cream px-4 py-3 font-sans text-[0.9rem] text-charcoal outline-none transition-colors focus:border-sage"
+                  placeholder="Votre téléphone"
+                  readOnly
+                />
+                <input
+                  type="email"
+                  className="w-full rounded-lg border-[1.5px] border-borderDefault bg-cream px-4 py-3 font-sans text-[0.9rem] text-charcoal outline-none transition-colors focus:border-sage"
+                  placeholder="Votre email"
+                  readOnly
+                />
               </div>
               <button
                 type="button"
@@ -167,5 +213,3 @@ export function Quiz() {
     </section>
   );
 }
-
-

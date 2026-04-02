@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 const items = [
   { icon: "🔧", name: "Barre d'appui inox", price: "Dès 29 €" },
@@ -11,10 +11,12 @@ export function Accessories() {
   return (
     <section className="border-y border-borderDefault bg-warmWhite px-8 py-[70px]">
       <div className="mx-auto max-w-[1100px]">
-        <div className="mb-0 text-left">
+        <div className="mb-0 text-center">
           <span className="mb-3 block text-[0.78rem] font-medium uppercase tracking-[0.12em] text-sage">Accessoires</span>
-          <h2 className="mb-3 font-serif text-[2.4rem]">Petits équipements, grand confort</h2>
-          <p className="max-w-[500px] text-textMuted">
+          <h2 className="mb-3 font-sans text-[2.4rem] font-bold leading-[1.2] tracking-tight text-charcoal">
+            Petits équipements, grand confort
+          </h2>
+          <p className="mx-auto max-w-[500px] text-textMuted">
             Des produits sélectionnés pour leur qualité, disponibles immédiatement sur Amazon. Idéal pour sécuriser en attendant les travaux.
           </p>
         </div>

@@ -5,7 +5,7 @@ import "./globals.css";
 const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-dm-sans",
-  weight: ["300", "400", "500", "700"],
+  weight: ["300", "400", "500", "700", "800", "900"],
 });
 
 const playfair = Playfair_Display({

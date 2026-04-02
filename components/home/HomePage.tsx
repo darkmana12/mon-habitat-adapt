@@ -4,21 +4,23 @@ import { FAQ } from "./FAQ";
 import { FinalCTA } from "./FinalCTA";
 import { Footer } from "./Footer";
 import { Hero } from "./Hero";
-import { MonteHighlight } from "./MonteHighlight";
 import { Navbar } from "./Navbar";
 import { PrimeBanner } from "./PrimeBanner";
 import { Quiz } from "./Quiz";
+import { MaPrimeAdaptIntro } from "./MaPrimeAdaptIntro";
 import { Services } from "./Services";
 
 export function HomePage() {
   return (
     <>
-      <Navbar />
+      <header className="sticky top-0 z-[100]">
+        <Navbar />
+      </header>
       <PrimeBanner />
       <Hero />
       <Quiz />
+      <MaPrimeAdaptIntro />
       <Services />
-      <MonteHighlight />
       <Articles />
       <Accessories />
       <FAQ />
